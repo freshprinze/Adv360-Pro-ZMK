@@ -4,14 +4,12 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/backlight.h>
 
-#define HYPER(keycode) LS(LC(LA(LG(keycode))))
-#define MEH(keycode) LS(LC(LA(keycode)))
-#define AMYTH LS(LEFT_ALT)
-#define BLANK &none
-#define DV_LCUT LG(LS(LBKT))
-#define DV_RCUT LG(LS(RBKT))
-#define AS(keycode) &as LS(keycode) keycode
+#define HYP(keycode)    LS(LC(LA(LG(keycode))))
+#define HYPER           LS(LC(LA(LGUI)))
+#define MACLOCK         LG(LC(Q))
 
+
+// layers 
 #define DEFAULT     0
 #define KEYPAD      1
 #define FUNCTION    2
@@ -24,6 +22,7 @@
     behaviors {
       #include "macros.dtsi"
       #include "version.dtsi"
+
       #ifndef VERSION_MACRO
       macro_ver: macro_ver {
         compatible = "zmk,behavior-macro";
@@ -54,11 +53,11 @@
         //|--------------|--------------|--------------|--------------|--------------|--------------|--------------|                                                                                             |--------------|--------------|--------------|--------------|--------------|--------------|--------------| 
             &kp HOME       &kp Q          &kp W          &kp E          &kp R          &kp T          &none                                                                                                        &none          &kp Y          &kp U          &kp I          &kp O          &kp P          &kp BSLH
         //|--------------|--------------|--------------|--------------|--------------|--------------|--------------|                |--------------|--------------|--------------|--------------|                |--------------|--------------|--------------|--------------|--------------|--------------|--------------|
-            &kp LC(UP)        &kp A          &kp S          &kp D          &kp F          &kp G          &none                           &kp ESC        &kp LALT       &kp RCTRL      &kp LGUI                        &none          &kp H          &kp J          &kp K          &kp L          &kp SEMI       &kp SQT
+            &kp LC(UP)     &kp A          &kp S          &kp D          &kp F          &kp G          &none                           &kp ESC        &kp LALT       &kp RCTRL      &kp LGUI                        &none          &kp H          &kp J          &kp K          &kp L          &kp SEMI       &kp SQT
         //|--------------|--------------|--------------|--------------|--------------|--------------|                                              |--------------|--------------|                                              |--------------|--------------|--------------|--------------|--------------|--------------|
             &kp LSHFT      &kp Z          &kp X          &kp C          &kp V          &kp B                                                         &kp TAB        &kp PG_UP                                                     &kp N          &kp M          &kp COMMA      &kp DOT        &kp FSLH       &kp RSHFT
         //|--------------|--------------|--------------|--------------|--------------|                               |--------------|--------------|--------------|--------------|--------------|--------------|                               |--------------|--------------|--------------|--------------|--------------|
-            &mo FUNCTION   &kp GRAVE      &kp CAPS       &kp LEFT       &kp RIGHT                                      &kp SPACE      &kp DEL        &kp LCMD       &kp PG_DN      &kp ENTER      &kp BSPC                                       &kp UP         &kp DOWN       &kp LBKT       &kp RBKT       &mo FUNCTION
+            &mo FUNCTION   &kp GRAVE      &kp HYPER      &kp LEFT       &kp RIGHT                                      &kp SPACE      &kp DEL        &kp LCMD       &kp PG_DN      &kp ENTER      &kp BSPC                                       &kp UP         &kp DOWN       &kp LBKT       &kp RBKT       &mo FUNCTION
       >;
     };
 
@@ -73,7 +72,7 @@
         //|--------------|--------------|--------------|--------------|--------------|--------------|                                              |--------------|--------------|                                              |--------------|--------------|--------------|--------------|--------------|--------------|
             &kp LSHFT      &kp Z          &kp X          &kp C          &kp V          &kp B                                                         &trans         &trans                                                        &kp N          &kp KP_N1      &kp KP_N2      &kp KP_N3      &kp KP_ENTER   &kp RSHFT
         //|--------------|--------------|--------------|--------------|--------------|                               |--------------|--------------|--------------|--------------|--------------|--------------|                               |--------------|--------------|--------------|--------------|--------------|
-            &mo FUNCTION   &trans         &kp CAPS       &kp LEFT       &kp RIGHT                                      &trans         &trans         &trans         &trans         &trans         &kp KP_N0                                      &kp UP         &kp DOWN       &kp KP_DOT     &kp RBKT       &mo FUNCTION
+            &mo FUNCTION   &trans         &trans         &kp LEFT       &kp RIGHT                                      &trans         &trans         &trans         &trans         &trans         &kp KP_N0                                      &kp UP         &kp DOWN       &kp KP_DOT     &kp RBKT       &mo FUNCTION
       >;
     };
 
